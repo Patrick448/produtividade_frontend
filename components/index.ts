@@ -9,6 +9,7 @@ import Button from "./Button";
 import CardResult from "./CardResult";
 import UserListItem from "./UserListItem";
 import TeamListItem from "./TeamListItem";
+import RequestListItem from "./RequestListItem";
 
 export {
   Card,
@@ -21,5 +22,6 @@ export {
   Button,
   CardResult,
   UserListItem,
-  TeamListItem
+  TeamListItem,
+  RequestListItem
 };

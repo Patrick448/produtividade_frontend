@@ -1,16 +1,41 @@
-export type usuarioProps = {
+export type userProps = {
   id: number;
   nome: string;
   pesoEficiencia: number;
-  listaTime: timeProps[] | null;
-  listaRelatorioHora: null;
+  listaTime: teamProps[] | null;
+  listaRelatorioHora: hourLogProps[] | null;
 };
 
-export type timeProps = {
+export type teamProps = {
   id: number;
   nome: string;
-  listaUsuario: usuarioProps[]| null;
+  listaUsuario: userProps[]| null;
 };
+
+export type requestProps = {
+  id: number;
+  listaHistoricoEstado: stateHistoryProps[] | null,
+  dataEntrega: string,
+  horaDemanda: number,
+  listaUsuario: userProps[]| null;
+  pesoComplexidade: number
+};
+
+export type stateHistoryProps ={
+  id:number,
+  demanda: requestProps | null,
+  estado: number,
+  dataMudancaEstado: string
+}
+
+export type hourLogProps ={
+  id:number,
+  demanda: requestProps | null,
+  usuario: userProps,
+  data: string,
+  dataInicio: string,
+  dataFim: string
+}
 
 
 export type solutionProps = {

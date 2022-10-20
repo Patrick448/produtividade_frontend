@@ -9,7 +9,7 @@ import {
   WrapperGrid,
   WrapperLoading,
 } from "../styles/resultstyles";
-import { timeProps } from "../types/types";
+import { teamProps } from "../types/types";
 
 type cropTypes = {
   id: number;
@@ -53,7 +53,7 @@ export type dataTypes = {
   fields: fieldTypes[];
 };
 
-const dummyData: timeProps[] = [
+const dummyData: teamProps[] = [
   {
     id: 1,
     nome: "Time X",

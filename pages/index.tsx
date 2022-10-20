@@ -19,7 +19,7 @@ import {
   inputDataProps,
   fieldProps,
   cropProps,
-  usuarioProps,
+  userProps,
 } from "../types/types";
 
 import { useRouter } from "next/router";
@@ -41,7 +41,7 @@ type dataProps = {
   modelName: string;
 };
 
-const dummyData: usuarioProps[] = [
+const dummyData: userProps[] = [
   {
     id: 1,
     nome: "José",

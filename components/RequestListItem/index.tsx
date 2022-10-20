@@ -1,15 +1,15 @@
 import { useState } from "react";
 import {AiOutlineTeam,AiOutlineUser} from "react-icons/ai"
 import { solutionCropProps } from "../../types/types";
-import styles from "./UserListItem.module.css";
-import {userProps} from "../../types/types"
+import styles from "./RequestListItem.module.css";
+import {requestProps} from "../../types/types"
 
 
-type userListItemProps={
-  data:userProps
+type requestListItemProps={
+  data:requestProps
 }
 
-const UserListItem = (props:userListItemProps) => {
+const RequestListItem = (props:requestListItemProps) => {
   const [active, setIsActive] = useState(false);
 
   function handleSetActive() {
@@ -28,18 +28,21 @@ const UserListItem = (props:userListItemProps) => {
             <span>{props.data.id}</span>
           </div>
           <div className={styles.rowItem}>
-            <span>{props.data.nome}</span>
+            <span>{props.data.dataEntrega}</span>
           </div>
+
           <div className={styles.rowItem}>
-            <span>
-              {props.data.pesoEficiencia}
-            </span>
+            <span>{props.data.horaDemanda}</span>
           </div>
+
+          <div className={styles.rowItem}>
+            <span>{props.data.pesoComplexidade}</span>
+          </div>
+
           <div className={styles.rowItem}>
           <span>
-              {"Time Dev"}
             </span>
-            <AiOutlineTeam color="#6d6d6d" />
+            <AiOutlineUser color="#6d6d6d" />
           </div>
 
 
@@ -50,4 +53,4 @@ const UserListItem = (props:userListItemProps) => {
   );
 };
 
-export default UserListItem;
+export default RequestListItem;

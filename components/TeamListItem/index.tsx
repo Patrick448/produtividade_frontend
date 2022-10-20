@@ -2,11 +2,11 @@ import { useState } from "react";
 import {AiOutlineTeam,AiOutlineUser} from "react-icons/ai"
 import { solutionCropProps } from "../../types/types";
 import styles from "./TeamListItem.module.css";
-import {timeProps} from "../../types/types"
+import {teamProps} from "../../types/types"
 
 
 type teamListItemProps={
-  data:timeProps
+  data:teamProps
 }
 
 const TeamListItem = (props:teamListItemProps) => {
