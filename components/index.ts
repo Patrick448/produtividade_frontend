@@ -10,7 +10,8 @@ import CardResult from "./CardResult";
 import UserListItem from "./UserListItem";
 import TeamListItem from "./TeamListItem";
 import RequestListItem from "./RequestListItem";
-
+import TitleRow from "./TitleRow";
+import ActivityListItem from "./ActivityListItem";
 export {
   Card,
   CardList,
@@ -23,5 +24,7 @@ export {
   CardResult,
   UserListItem,
   TeamListItem,
-  RequestListItem
+  RequestListItem,
+  TitleRow,
+  ActivityListItem
 };

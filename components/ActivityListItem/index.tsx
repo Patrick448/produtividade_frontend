@@ -1,14 +1,14 @@
 import { useState } from "react";
 import {AiOutlineTeam,AiOutlineUser} from "react-icons/ai"
-import styles from "./UserListItem.module.css";
-import {userProps} from "../../types/types"
+import styles from "./ActivityListItem.module.css";
+import {activityProps} from "../../types/types"
 
 
-type userListItemProps={
-  data:userProps
+type activityListItemProps={
+  data:activityProps
 }
 
-const UserListItem = (props:userListItemProps) => {
+const ActivityListItem = (props:activityListItemProps) => {
   const [active, setIsActive] = useState(false);
 
   function handleSetActive() {
@@ -27,17 +27,22 @@ const UserListItem = (props:userListItemProps) => {
             <span>{props.data.id}</span>
           </div>
           <div className={styles.rowItem}>
-            <span>{props.data.nome}</span>
+            <span>{"Request ID"}</span>
           </div>
           <div className={styles.rowItem}>
             <span>
-              {props.data.efficiency}
+              {"UserID"}
+            </span>
+          </div>
+          <div className={styles.rowItem}>
+            <span>
+              {props.data.complexity}
             </span>
           </div>
           <div className={styles.rowItem}>
           <span>
             </span>
-            <AiOutlineTeam color="#6d6d6d" />
+            <AiOutlineUser color="#6d6d6d" />
           </div>
 
 
@@ -48,4 +53,4 @@ const UserListItem = (props:userListItemProps) => {
   );
 };
 
-export default UserListItem;
+export default ActivityListItem;

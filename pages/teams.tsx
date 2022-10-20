@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import { Button, CardResult, TeamListItem } from "../components";
+import { Button, CardResult, TeamListItem, TitleRow } from "../components";
 import { Section } from "../styles/homestyles";
 import {
   Container,
@@ -60,27 +60,27 @@ const dummyData: teamProps[] = [
     listaUsuario: null,
   },
   {
-    id: 1,
+    id: 2,
     nome: "Time A",
     listaUsuario: null,
   },
   {
-    id: 1,
+    id: 3,
     nome: "Time B",
     listaUsuario: null,
   },
   {
-    id: 1,
+    id: 4,
     nome: "Time C",
     listaUsuario: null,
   },
   {
-    id: 1,
+    id: 5,
     nome: "Time D",
     listaUsuario: null,
   },
   {
-    id: 1,
+    id: 6,
     nome: "Time E",
     listaUsuario: null,
   },
@@ -96,16 +96,17 @@ const Teams: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Agriculture | Result Optimizer</title>
+        <title>Produtividade</title>
       </Head>
 
       <Container>
         <Section>
           <h1>Times</h1>
           <span>Gerenciar times</span>
+          <TitleRow data={["Id", "Nome",  ""]}/>
 
           {dummyData.map((item) => (
-            <TeamListItem data={item} />
+            <TeamListItem key= {item.id} data={item} />
           ))}
         </Section>
       </Container>

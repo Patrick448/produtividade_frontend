@@ -1,9 +1,9 @@
 export type userProps = {
   id: number;
   nome: string;
-  pesoEficiencia: number;
-  listaTime: teamProps[] | null;
-  listaRelatorioHora: hourLogProps[] | null;
+  efficiency: number;
+  teamList: teamProps[] | null;
+  hourLogList: hourLogProps[] | null;
 };
 
 export type teamProps = {
@@ -14,30 +14,38 @@ export type teamProps = {
 
 export type requestProps = {
   id: number;
-  listaHistoricoEstado: stateHistoryProps[] | null,
-  dataEntrega: string,
-  horaDemanda: number,
-  listaUsuario: userProps[]| null;
-  pesoComplexidade: number
+  stateHistoryList: stateHistoryProps[] | null,
+  deliveryData: string,
+  hoursRequest: number,
+  userList: userProps[]| null;
+  complexity: number,
+  activitiesList: activityProps[]
 };
 
 export type stateHistoryProps ={
   id:number,
-  demanda: requestProps | null,
-  estado: number,
-  dataMudancaEstado: string
+  request: requestProps | null,
+  state: number,
+  stateChangeDate: string
 }
 
 export type hourLogProps ={
   id:number,
-  demanda: requestProps | null,
-  usuario: userProps,
-  data: string,
-  dataInicio: string,
-  dataFim: string
+  request: requestProps | null,
+  user: userProps,
+  date: string,
+  startDate: string,
+  endDate: string
 }
 
+export type activityProps ={
+  id:number,
+  request: requestProps| null,
+  user: userProps| null,
+  complexity:number
+}
 
+/*
 export type solutionProps = {
   id: number;
   solutionCrops: solutionCropProps[];
@@ -88,3 +96,4 @@ export type solutionCropProps = {
   timeFrame: number;
   field: fieldProps;
 };
+*/
