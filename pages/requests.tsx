@@ -1,8 +1,10 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import { useEffect, useState } from "react";
 import { RequestListItem, TitleRow } from "../components";
 import { Container, Section } from "../styles/requeststyles";
 import { requestProps, activityProps } from "../types/types";
+import { fetchRequests } from "./api/api";
 
 
 const dummyActivities: activityProps[] = [
@@ -29,46 +31,52 @@ const dummyActivities: activityProps[] = [
 const dummyData: requestProps[] = [
   {
     id: 1,
+    name: "A",
+    state: "FEITO",
     stateHistoryList: null,
-    deliveryData: "21/10/2022",
+    deliveryDate: "21/10/2022",
     hoursRequest: 50,
-    userList: null,
-    complexity: 1.5,
-    activitiesList: dummyActivities
+    activityList: dummyActivities
   },
   {
     id: 2,
+    name: "A",
+    state: "FEITO",
     stateHistoryList: null,
-    deliveryData: "21/10/2022",
+    deliveryDate: "21/10/2022",
     hoursRequest: 50,
-    userList: null,
-    complexity: 1.5,
-    activitiesList: dummyActivities
+    activityList: dummyActivities
 
   },
   {
     id:3,
+    name: "A",
+    state: "FEITO",
     stateHistoryList: null,
-    deliveryData: "21/10/2022",
+    deliveryDate: "21/10/2022",
     hoursRequest: 50,
-    userList: null,
-    complexity: 1.5,
-    activitiesList: dummyActivities
+    activityList: dummyActivities
 
   },
   {
     id: 4,
+    name: "A",
+    state: "FEITO",
     stateHistoryList: null,
-    deliveryData: "21/10/2022",
+    deliveryDate: "21/10/2022",
     hoursRequest: 50,
-    userList: null,
-    complexity: 1.5,
-    activitiesList: dummyActivities
+    activityList: dummyActivities
 
   },
 ];
 
 const Requests: NextPage = () => {
+
+  const [requestsList, setRequestsList] = useState<requestProps[]>([])
+
+  useEffect(()=>{fetchRequests().then(data => setRequestsList(data))}, [])
+
+
   return (
     <>
       <Head>
@@ -79,9 +87,9 @@ const Requests: NextPage = () => {
         <Section>
           <h1>Demandas</h1>
           <span>Gerenciar demandas</span>
-          <TitleRow data={["Id", "Data", "Horas", "Complexidade", ""]}/>
+          <TitleRow data={["Id", "Data", "Horas", ""]}/>
 
-          {dummyData.map((item) => (
+          {requestsList.map((item) => (
             <RequestListItem key= {item.id} data={item} />
           ))}
         </Section>

@@ -1,29 +1,26 @@
 import axios from "axios";
-import { cropProps } from "../../types/types";
 import {
-  solutionProps,
-  solutionCropProps,
-  inputDataProps,
+  requestProps,
+  teamProps,
+  userProps,
+
 } from "../../types/types";
 
-const hostName = "http://localhost:8080";
+const hostName = "http://192.168.15.3:3000";
 
-export const fetchCrops = async () => {
-  const response = await axios.get(`${hostName}/crop/get-all`).then();
-  return response.data as cropProps[];
+export const fetchUsers = async () => {
+  const response = await axios.get(`${hostName}/user`).then();
+  return response.data as userProps[];
 };
 
-export const fetchSolutions = async () => {
-  const response = await axios.get(`${hostName}/solution/get-all`).then();
-  return response.data;
+export const fetchTeams = async () => {
+  const response = await axios.get(`${hostName}/team`).then();
+  return response.data as teamProps[];
 };
 
-export const fetchSolution = async (id: number) => {
-  const response = await axios.get(`${hostName}/solution/get/${id}`).then();
-  return response.data as solutionProps;
+export const fetchRequests = async () => {
+  const response = await axios.get(`${hostName}/request`).then();
+  return response.data as requestProps[];
 };
 
-export const postUserInput = async (data: inputDataProps) => {
-  const response = await axios.post(`${hostName}/main/solve-new`, data).then();
-  return response.data as solutionProps;
-};
+

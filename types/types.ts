@@ -1,6 +1,6 @@
 export type userProps = {
   id: number;
-  nome: string;
+  name: string;
   efficiency: number;
   teamList: teamProps[] | null;
   hourLogList: hourLogProps[] | null;
@@ -8,25 +8,25 @@ export type userProps = {
 
 export type teamProps = {
   id: number;
-  nome: string;
-  listaUsuario: userProps[]| null;
+  name: string;
+  userList: userProps[]| null;
 };
 
 export type requestProps = {
   id: number;
+  name: string;
+  state: string;
   stateHistoryList: stateHistoryProps[] | null,
-  deliveryData: string,
+  deliveryDate: string,
   hoursRequest: number,
-  userList: userProps[]| null;
-  complexity: number,
-  activitiesList: activityProps[]
+  activityList: activityProps[]
 };
 
 export type stateHistoryProps ={
   id:number,
   request: requestProps | null,
   state: number,
-  stateChangeDate: string
+  date: string
 }
 
 export type hourLogProps ={

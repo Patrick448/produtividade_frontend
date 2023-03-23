@@ -15,7 +15,7 @@ import {
 import { BsCurrencyDollar, BsFillCalendarRangeFill } from "react-icons/bs";
 import { MdOutlineDriveFileRenameOutline } from "react-icons/md";
 import { useState, useEffect } from "react";
-import { fetchCrops, postUserInput } from "./api/api";
+import { fetchUsers } from "./api/api";
 import {
   userProps,
 } from "../types/types";
@@ -35,42 +35,42 @@ import {
 const dummyData: userProps[] = [
   {
     id: 1,
-    nome: "José",
+    name: "José",
     efficiency: 1.5,
     teamList: null,
     hourLogList: null,
   },
   {
     id: 2,
-    nome: "João",
+    name: "João",
     efficiency: 1.5,
     teamList: null,
     hourLogList: null,
   },
   {
     id: 3,
-    nome: "Maria",
+    name: "Maria",
     efficiency: 1.5,
     teamList: null,
     hourLogList: null,
   },
   {
     id: 4,
-    nome: "Victor",
+    name: "Victor",
     efficiency: 1.5,
     teamList: null,
     hourLogList: null,
   },
   {
     id: 5,
-    nome: "Moisés",
+    name: "Moisés",
     efficiency: 1.5,
     teamList: null,
     hourLogList: null,
   },
   {
     id: 6,
-    nome: "Helena",
+    name: "Helena",
     efficiency: 1.5,
     teamList: null,
     hourLogList: null,
@@ -79,17 +79,10 @@ const dummyData: userProps[] = [
 ];
 
 const Home: NextPage = () => {
-  const [isOpenModalInvestimento, setIsOpenModalInvestimento] = useState(false);
-  const [isOpenModalField, setIsOpenModalField] = useState(false);
-  const [isOpenModalPlants, setIsOpenModalPlants] = useState(false);
-  const [isOpenModalModelName, setIsOpenModalModelName] = useState(false);
-  const [isOpenModalModelTimeFrames, setIsOpenModalTimeFrames] =
-    useState(false);
-
+  const [userList, serUserList] = useState<userProps[]>([])
   const router = useRouter();
 
-
-
+  useEffect(()=>{fetchUsers().then(data => serUserList(data))}, [])
 
   return (
     <>
@@ -104,7 +97,7 @@ const Home: NextPage = () => {
           <h1>Pessoas</h1>
           <span>Gerenciar pessoas</span>
           <TitleRow data={["Id", "Nome", "Eficiência", ""]}/>
-          {dummyData.map(item=><UserListItem key= {item.id} data={item}/>)}
+          {userList.map(item=><UserListItem expands ={true}key= {item.id} data={item}/>)}
           
         </Section>
         <Button title="Otimizar" onClick={()=>{}} />

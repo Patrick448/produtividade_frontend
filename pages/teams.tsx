@@ -10,6 +10,7 @@ import {
   WrapperLoading,
 } from "../styles/resultstyles";
 import { teamProps } from "../types/types";
+import { fetchTeams } from "./api/api";
 
 type cropTypes = {
   id: number;
@@ -56,42 +57,41 @@ export type dataTypes = {
 const dummyData: teamProps[] = [
   {
     id: 1,
-    nome: "Time X",
-    listaUsuario: null,
+    name: "Time X",
+    userList: null,
   },
   {
     id: 2,
-    nome: "Time A",
-    listaUsuario: null,
+    name: "Time A",
+    userList: null,
   },
   {
     id: 3,
-    nome: "Time B",
-    listaUsuario: null,
+    name: "Time B",
+    userList: null,
   },
   {
     id: 4,
-    nome: "Time C",
-    listaUsuario: null,
+    name: "Time C",
+    userList: null,
   },
   {
     id: 5,
-    nome: "Time D",
-    listaUsuario: null,
+    name: "Time D",
+    userList: null,
   },
   {
     id: 6,
-    nome: "Time E",
-    listaUsuario: null,
+    name: "Time E",
+    userList: null,
   },
 ];
 
 const Teams: NextPage = () => {
-  const [loading, setLoading] = useState(true);
+  const [teamsList, serTeamsList] = useState<teamProps[]>([])
 
-  useEffect(() => {
-    //setTimeout(() => setLoading(false), 3000);
-  }, []);
+  useEffect(()=>{fetchTeams().then(data => serTeamsList(data))}, [])
+
 
   return (
     <>
@@ -105,8 +105,8 @@ const Teams: NextPage = () => {
           <span>Gerenciar times</span>
           <TitleRow data={["Id", "Nome",  ""]}/>
 
-          {dummyData.map((item) => (
-            <TeamListItem key= {item.id} data={item} />
+          {teamsList.map((item) => (
+            <TeamListItem expands={true} key= {item.id} data={item} />
           ))}
         </Section>
       </Container>

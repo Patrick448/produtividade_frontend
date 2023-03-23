@@ -33,17 +33,14 @@ const RequestListItem = (props:requestListItemProps) => {
             <span>{props.data.id}</span>
           </div>
           <div className={styles.rowItem}>
-            <span>{props.data.deliveryData}</span>
+            <span>{props.data.deliveryDate}</span>
           </div>
 
           <div className={styles.rowItem}>
             <span>{props.data.hoursRequest}</span>
           </div>
 
-          <div className={styles.rowItem}>
-            <span>{props.data.complexity}</span>
-          </div>
-
+       
           <div className={styles.rowItem}>
           <span>
             </span>
@@ -56,9 +53,8 @@ const RequestListItem = (props:requestListItemProps) => {
         <div className={styles.expandedContainer}>
         <h3>{`Demanda ${props.data.id} | Atividades`}</h3>
         <TitleRow data={["Id", "Demanda", "Usuário", "Complexidade", ""]}/>
-          {props.data.activitiesList.map((item)=><ActivityListItem data={item}/>)}
+          {props.data.activityList.map((item)=><ActivityListItem data={item}/>)}
         </div>
-        <h3>{`Ho ${props.data.id} | Atividades`}</h3>
       <div>
 
       </div>
@@ -82,17 +78,14 @@ const RequestListItem = (props:requestListItemProps) => {
               <span>{props.data.id}</span>
             </div>
             <div className={styles.rowItem}>
-              <span>{props.data.deliveryData}</span>
+              <span>{(new Date(Date.parse(props.data.deliveryDate))).toLocaleString("pt-br")}</span>
             </div>
   
             <div className={styles.rowItem}>
               <span>{props.data.hoursRequest}</span>
             </div>
   
-            <div className={styles.rowItem}>
-              <span>{props.data.complexity}</span>
-            </div>
-  
+
             <div className={styles.rowItem}>
             <span>
               </span>

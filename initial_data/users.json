@@ -1,0 +1,22 @@
+[{
+    "name":"José",
+    "efficiency":1.5
+},
+{
+    "name":"João",
+    "efficiency":1.0
+},
+{
+    "name":"Maria",
+    "efficiency":1.5
+},
+{
+    "name":"Helena",
+    "efficiency":0.75
+},
+{
+    "name":"Victor",
+    "efficiency":0.75
+}
+
+]
